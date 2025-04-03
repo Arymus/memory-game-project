@@ -1,5 +1,7 @@
 const title = document.getElementById("title"); // Pull the element with an ID of title from the DOM
+const start = document.getElementById("start"); // Pull the element with an ID of start from the DOM
 
+// Initialize a function called rgb
 function rgb() {
 
     // Get 3 random numbers from 0-255 and return them inside rgb format
@@ -10,7 +12,7 @@ function rgb() {
 };
 
 // Initialize a function named randomColor
-function randomizeColor() {
+function randomizeTitleColor() {
     
     // Split every character in the title into an array
     const titleInsert = title.innerText.split("");
@@ -34,4 +36,26 @@ function randomizeColor() {
         title.innerHTML = titleSpan; // Change the HTML content of the title to the letters with the random colors 
     };
 };
-randomizeColor(); // Call the randomizeColor function
+randomizeTitleColor(); // Call the randomizeTitle function
+
+// Initialize a function called randomButtonColor
+function randomizeButtonColor() {
+
+    // Select the area where our variables are in CSS
+    const variables = document.querySelector(":root");
+
+    // Get a random RGB color with the rgb function and assign it to the background and text color variables
+    variables.style.setProperty("--bg-color", rgb());
+    variables.style.setProperty("--text-color", rgb());
+};
+randomizeButtonColor(); // Call randomizeButtonColor
+
+function gameStart() {
+
+};
+
+start.addEventListener("click", () => {
+    document.querySelector("main").style.display = "none";
+    document.querySelector("header").style.display = "none";
+    gameStart();
+});

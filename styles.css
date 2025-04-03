@@ -1,9 +1,79 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+}
+
+@font-face {
+    font-family: super-shiny;
+    src: url("/assets/SuperShiny-0v0rG.ttf");
+}
+
 body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
     background-image: url("/assets/background.png");
     background-size: 20%;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #title {
     text-align: center;
-    font-size: 3rem;
+    font-size: 4rem;
+    font-family: super-shiny;
+    letter-spacing: 5px;
+}
+
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    #instructions-header {
+        font-size: 2.5rem;
+        font-family: super-shiny;
+        letter-spacing: 30px;
+    }
+
+    #instructions {
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 50px 100px;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: 200;
+    }
+}
+
+#start {
+    padding: 10px;
+    background-color: black;
+    border: 2px solid whitesmoke;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#start:active {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 3px solid #000000;
+}
+
+footer {
+    bottom: 0;
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0;
 }
