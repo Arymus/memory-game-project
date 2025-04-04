@@ -51,11 +51,89 @@ function randomizeButtonColor() {
 randomizeButtonColor(); // Call randomizeButtonColor
 
 function gameStart() {
+    const mainContent = document.querySelector("main"); // Select the main element from the DOM
+    mainContent.innerHTML = ""; // Empty the HTML in <main>
 
+    // Create the container for the cards
+    const cardContainer = document.createElement("div");
+    cardContainer.classList.add("card-container");
+    
+    // Create the red image for the red card and give it a class names card-image
+    const redImg = document.createElement("img");
+    redImg.classList.add("card-image");
+    redImg.src = "/assets/red.png";
+
+    // Create the yellow image for the yellow card and give it a class names card-image
+    const yellowImg = document.createElement("img");
+    yellowImg.classList.add("card-image");
+    yellowImg.src = "/assets/yellow.png";
+    
+    // Create the green image for the green card and give it a class names card-image
+    const greenImg = document.createElement("img");
+    greenImg.classList.add("card-image");
+    greenImg.src = "/assets/green.png";
+
+    // Create the blue image for the blue card and give it a class names card-image
+    const blueImg = document.createElement("img");
+    blueImg.classList.add("card-image");
+    blueImg.src = "/assets/blue.png";
+
+    // Create the cards in the DOM and append their images to them
+    const red = document.createElement("div");
+    red.appendChild(redImg);
+    
+    const yellow = document.createElement("div");
+    yellow.appendChild(yellowImg);
+
+    const green = document.createElement("div");
+    green.appendChild(greenImg);
+    
+    const blue = document.createElement("div");
+    blue.appendChild(blueImg);
+    
+
+    // Add each card in
+    cardContainer.appendChild(red);
+    cardContainer.appendChild(yellow);
+    cardContainer.appendChild(green);
+    cardContainer.appendChild(blue);
+    
+    mainContent.appendChild(cardContainer);
+
+    /*
+    const select = self => {
+        const selection = self.name.toString();
+    }
+
+    // When the card is clicked, select it
+    red.addEventListener("click", select);
+    yellow.addEventListener("click", select);
+    green.addEventListener("click", select);
+    blue.addEventListener("click", select);
+    */
 };
 
+function checkMatch() {
+    // Select the area where our variables are in CSS
+    const variables = document.querySelector(":root");
+    let moves = 0;
+
+    let selection;
+    let selection2;
+
+    if (selection === selection2) {
+        variables.style.setProperty("--fill-mode", "forwards");
+        moves++;
+    } else {
+        moves++;
+    };
+
+}
+
+// Listen for a click on the start button
 start.addEventListener("click", () => {
-    document.querySelector("main").style.display = "none";
-    document.querySelector("header").style.display = "none";
-    gameStart();
+
+    gameStart(); // Call the gameStart function to start the game
+    randomizeButtonColor(); // Call randomizeButtonColor to give the footer a new color
+    randomizeTitleColor(); // Call randomizeTitleColor to change the title's color again
 });

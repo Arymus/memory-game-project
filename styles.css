@@ -1,6 +1,23 @@
 :root {
     --bg-color: #000000;
     --text-color: #ffffff;
+    --fill-mode: 
+}
+
+@keyframes flip {
+    0% {
+        width: 200px;
+        height: 200px;
+    }
+    
+    10% {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@keyframes img-appear {
+    
 }
 
 @font-face {
@@ -45,7 +62,7 @@ main {
 
     #instructions {
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 2rem;
         margin: 50px 100px;
         font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         font-weight: 200;
@@ -69,6 +86,8 @@ main {
 }
 
 footer {
+    width: 100%;
+    position: fixed;
     bottom: 0;
     background-color: var(--bg-color);
     display: flex;
@@ -76,4 +95,14 @@ footer {
     justify-content: space-between;
     padding: 20px;
     margin: 0;
+}
+
+.card-image {
+    display: none;
+    animation: img-appear 1.5s var(--fill-mode) 1 alternate;
+}
+
+.card-container {
+    border-radius: 16px;
+    animation: flip 1.5s var(--fill-mode) 1 alternate;
 }
