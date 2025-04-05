@@ -78,18 +78,46 @@ function gameStart() {
     blueImg.classList.add("card-image");
     blueImg.src = "/assets/blue.png";
 
-    // Create the cards in the DOM and append their images to them
+    // Create the cards in the DOM with a class of "card" and append their images to them
     const red = document.createElement("div");
+    red.classList.add("card");
     red.appendChild(redImg);
     
     const yellow = document.createElement("div");
+    yellow.classList.add("card");
     yellow.appendChild(yellowImg);
 
     const green = document.createElement("div");
+    green.classList.add("card");
     green.appendChild(greenImg);
+
     
     const blue = document.createElement("div");
+    blue.classList.add("card");
     blue.appendChild(blueImg);
+
+    const cards = [red, yellow, green, blue]; // Create an array containing the cards
+    
+    function randomizeCardPlacement(card) {
+        const random = Math.floor(Math.random() * 2);
+        card.style.gridArea = `${random}/${random}/${random}/${random}`;
+        
+        /*for (i in cards) {
+            switch (cards[i]) {
+                case cards[i].style.gridArea !== cards[i++].style.gridArea:
+                    return;
+                case cards[i].style.gridArea !== cards[i--].style.gridArea:
+                    return;
+                case cards[i].style.gridArea !== cards[i - 2].style.gridArea:
+                    return;
+                case cards[i].style.gridArea !== cards[i+ 2].style.gridArea:
+                    return;
+                default:
+                    randomizeCardPlacement(cards[i]);
+            }
+        }*/
+    };
+    
     
 
     // Add each card in
@@ -99,6 +127,7 @@ function gameStart() {
     cardContainer.appendChild(blue);
     
     mainContent.appendChild(cardContainer);
+    console.log(mainContent.innerHTML);
 
     /*
     const select = self => {
@@ -114,6 +143,7 @@ function gameStart() {
 };
 
 function checkMatch() {
+
     // Select the area where our variables are in CSS
     const variables = document.querySelector(":root");
     let moves = 0;
@@ -125,6 +155,7 @@ function checkMatch() {
         variables.style.setProperty("--fill-mode", "forwards");
         moves++;
     } else {
+        variables.style.setProperty("--animation-direction", "alternate")
         moves++;
     };
 
